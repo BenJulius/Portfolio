@@ -8,18 +8,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <nav>
         <div class="nav-container">
-            <span class="logo">BJ</span>
+            <span class="logo" id="theme-toggle" style="cursor: pointer;">BJ</span>
             <ul>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -28,8 +27,11 @@
 
     <header class="hero">
         <div class="container">
+            <div class="profile-pic-container">
+                <img src="./headshot.png" alt="Ben Julius" class="profile-pic">
+            </div>
             <h1>Ben Julius</h1>
-            <p>IT Support Associate | Cloud & Operations Specialist</p>
+            <p>Process Assistant OTR | IT Grad</p>
             <div class="hero-btns">
                 <a href="https://github.com/BenJulius/BenJulius.github.io/raw/main/Ben.Julius.Resume.pdf" class="btn primary">
                     <i class="fas fa-file-pdf"></i> View Resume
@@ -47,6 +49,16 @@
             <h2>Technical Projects</h2>
             <div class="project-grid">
                 <div class="project-card">
+                    <a href="https://github.com/BenJulius/vuln-scanner-lite" target="_blank" class="title-link">
+                        <h3>Vulnerability Scanner Lite</h3>
+                    </a>
+                    <p>Developed a conceptual, lightweight vulnerability scanner in Python. Designed to identify open ports and service versions for security baseline assessments.</p>
+                    <div class="tags">
+                        <span>Python</span> <span>Cybersecurity</span> <span>Networking</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
                     <h3>AWS Linux VM Deployment</h3>
                     <p>Provisioned an Ubuntu 24.04 LTS instance in AWS EC2. Configured Security Groups for SSH/HTTP access and managed remote connectivity via RSA key pairs.</p>
                     <div class="tags">
@@ -56,11 +68,23 @@
 
                 <div class="project-card">
                     <h3>Hardware Diagnostics & RCA</h3>
-                    <p>Utilized Root Cause Analysis (RCA) to identify and resolve critical hardware failures, ensuring system uptime and operational safety in high-pressure environments.</p>
+                    <p>Utilized Root Cause Analysis (RCA) to resolve critical hardware failures, ensuring system uptime and operational safety in high-pressure environments.</p>
                     <div class="tags">
                         <span>Troubleshooting</span> <span>Hardware</span> <span>RCA</span>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <div class="education-content">
+                <div class="edu-text">
+                    <h3>Southern New Hampshire University</h3>
+                    <p><strong>B.S. in Information Technology</strong> | <em>Expected Oct 2026</em></p>
+                    <p><strong>A.S. in Information Technology</strong> | <em>Conferred May 2025</em></p>
+                </div>
+                <img src="./snhu-logo.jpg" alt="SNHU Logo" class="edu-img">
             </div>
         </section>
 
@@ -71,24 +95,24 @@
                     <h4>Cloud & Infrastructure</h4>
                     <ul>
                         <li>AWS (EC2, S3)</li>
+                        <li>Microsoft Azure (VMs, NSGs)</li>
                         <li>Virtual Machines (Ubuntu)</li>
-                        <li>Network Security Groups</li>
                     </ul>
                 </div>
                 <div class="skill-category">
                     <h4>Support & Admin</h4>
                     <ul>
-                        <li>Windows/Linux OS</li>
                         <li>Hardware Diagnostics</li>
+                        <li>Windows/Linux OS</li>
                         <li>Active Directory (Learning)</li>
                     </ul>
                 </div>
                 <div class="skill-category">
-                    <h4>Tools & Operations</h4>
+                    <h4>Dev & Tools</h4>
                     <ul>
+                        <li>PowerShell & Python</li>
+                        <li>SQL (Databases)</li>
                         <li>Git & GitHub</li>
-                        <li>CLI (Bash)</li>
-                        <li>Operational Excellence</li>
                     </ul>
                 </div>
             </div>
@@ -96,16 +120,13 @@
 
         <section id="contact">
             <h2>Get In Touch</h2>
-            <p>Currently seeking IT Support roles in the Greater Boston and Providence area.</p>
             <div class="contact-grid">
                 <a href="https://www.linkedin.com/in/ben-julius/" target="_blank" class="contact-btn">
                     <i class="fab fa-linkedin"></i> LinkedIn
                 </a>
-
                 <a href="mailto:iambenjulius@gmail.com" class="contact-btn">
                     <i class="fas fa-envelope"></i> Email Me
                 </a>
-
                 <a href="https://github.com/BenJulius" target="_blank" class="contact-btn">
                     <i class="fab fa-github"></i> GitHub
                 </a>
@@ -119,6 +140,24 @@
             <p>&copy; 2026 Ben Julius. Built with HTML & CSS.</p>
         </div>
     </footer>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
+            
+            // Optional: Save preference to local storage
+            const isLight = body.classList.contains('light-mode');
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        });
+
+        // Load saved theme
+        if (localStorage.getItem('theme') === 'light') {
+            body.classList.add('light-mode');
+        }
+    </script>
 
 </body>
 </html>
