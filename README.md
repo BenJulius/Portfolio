@@ -13,6 +13,8 @@ This repository contains the source code for my professional portfolio. It serve
 * **Asset Management:** Optimized SVG icons and custom typography integration via Google Fonts.
 
 ## Project Directories
+
+* **[Focus Timer](https://github.com/BenJulius/focus-timer):** A timer built to make breaks rewarding.
 * **[Shadow Log](https://github.com/BenJulius/shadow-log):** System event capture and archival utility.
 * **[WinOps Sentinel](https://github.com/BenJulius/winops-sentinel):** PowerShell-driven operational monitoring.
 * **[Vulnerability Scanner Lite](https://github.com/BenJulius/vuln-scanner-lite):** Python-based port and service auditing tool.
